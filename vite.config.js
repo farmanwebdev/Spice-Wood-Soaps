@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: "/spice-wood-soaps/"
+ base: "/Spice-Wood-Soaps/"
 })
