@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext';
 
 export default function KitCard({ kit }) {
   const { addToCart } = useCart();
-  const { name, description, includes, price, originalPrice, savings } = kit;
+  const { id, name, description, includes, price, originalPrice, savings } = kit;
 
   return (
     <div className="bg-card rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-border/40 p-6">
@@ -28,7 +28,7 @@ export default function KitCard({ kit }) {
           )}
         </div>
         <button
-          onClick={() => addToCart(kit)}
+          onClick={() => addToCart({ ...kit, price, quantity: 1, type: 'kit' })}
           className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
         >
           <ShoppingCart className="w-4 h-4 mr-2" />

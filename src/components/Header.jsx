@@ -1,10 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Menu } from 'lucide-react';
 import { useState } from 'react';
+import { useCart } from '../context/CartContext';
 
-export default function Header({ cartCount }) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { cart } = useCart();
+  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const navLinks = [
     { to: '/', label: 'Home' },
