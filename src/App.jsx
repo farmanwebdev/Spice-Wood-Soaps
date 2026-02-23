@@ -15,7 +15,7 @@ function App() {
   return (
     <HelmetProvider>
       <CartProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/spice-wood-soaps/">
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
