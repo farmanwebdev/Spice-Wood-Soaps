@@ -2,6 +2,7 @@
   "name": "spice-wood-soaps",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://farmanwebdev.github.io/Spice-Wood-Soaps/",
   "type": "module",
   "scripts": {
     "dev": "vite",
