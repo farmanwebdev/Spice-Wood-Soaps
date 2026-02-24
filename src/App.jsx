@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { CartProvider } from './context/CartContext';
 import Layout from './components/Layout';
@@ -15,7 +15,7 @@ function App() {
   return (
     <HelmetProvider>
       <CartProvider>
-        <BrowserRouter basename="/spice-wood-soaps/">
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
@@ -28,7 +28,7 @@ function App() {
               <Route path="success" element={<Success />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </CartProvider>
     </HelmetProvider>
   );

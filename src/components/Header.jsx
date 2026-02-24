@@ -27,11 +27,8 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img
-                src="/logo.webp"
-                alt="Spice Wood Soaps logo"
-                className="w-20 h-20 rounded-full object-cover"
-              />
+            <img src="wood logo.png" alt="Spice Wood Soaps logo" class="w-20 h-20 rounded-full object-cover"/>
+              
               <span className="font-serif text-2xl font-bold tracking-tight text-primary">
                 Spice Wood Soaps
               </span>

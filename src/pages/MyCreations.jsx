@@ -1,11 +1,28 @@
 import { Helmet } from 'react-helmet-async';
 
 export default function MyCreations() {
-  // Placeholder images – replace with real photos
-  const images = Array.from({ length: 6 }, (_, i) => ({
-    id: i,
-    src: `/gallery/creation-${i+1}.jpg`,
-    alt: `Behind the scenes of soap making ${i+1}`,
+  // List your actual image filenames (all 9)
+  const imageFiles = [
+    'soap1.jpeg',
+    'soap2.jpeg',
+    'soap3.jpeg',
+    'soap4.jpeg',
+    'soap5.jpeg',
+    'soap6.jpeg',
+    'soap7.jpeg',
+    'soap8.jpeg',
+    'soap9.jpeg',
+  ];
+
+  // Choose the correct base path:
+  // If images are directly in /public → use '/'
+  // If images are inside /public/Gallery → use '/Gallery/'
+  const basePath = '/Spice-Wood-Soaps/Gallery/';
+
+  const images = imageFiles.map((file, index) => ({
+    id: index,
+    src: `${basePath}${file}`,
+    alt: `Behind the scenes of soap making ${index + 1}`,
   }));
 
   return (
@@ -33,6 +50,13 @@ export default function MyCreations() {
                   alt={img.alt}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  onError={(e) => {
+                    console.error(`Failed to load: ${img.src}`);
+                    // Optionally show a placeholder or hide the broken image
+                    e.target.style.display = 'none';
+                    // You could also show a fallback element
+                    // e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center">Image not found</div>';
+                  }}
                 />
               </div>
             ))}
