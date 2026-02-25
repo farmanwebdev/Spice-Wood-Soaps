@@ -38,17 +38,17 @@ export default function Shop() {
         <title>Shop Our Collection | Spice Wood Soaps</title>
         <meta name="description" content="Explore our range of handcrafted soaps, balms, and gift sets. All natural, veteran owned." />
       </Helmet>
-      <div className="bg-background min-h-screen py-12">
+      <div className="bg-secondary-foreground/70 min-h-screen py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h1 className="font-serif text-5xl font-bold mb-4 text-foreground">The Collection</h1>
-            <p className="text-muted-foreground text-lg">
+            <h1 className="font-serif text-5xl font-bold mb-4 text-primary-foreground">The Collection</h1>
+            <p className="text-primary-foreground/60 text-lg">
               Explore our range of handcrafted natural products, each with a unique personality and skin-loving benefits.
             </p>
           </div>
 
           <Tabs.Root value={activeTab} onValueChange={setActiveTab} className="w-full mb-8">
-            <Tabs.List className="inline-flex h-10 items-center rounded-md p-1 text-muted-foreground w-full max-w-md mx-auto justify-center bg-card/50 backdrop-blur-sm">
+            <Tabs.List className="inline-flex h-10 items-center rounded-md p-1 text-primary-foreground w-full max-w-md mx-auto justify-center bg-secondary/10 backdrop-blur-sm">
               {tabs.map(tab => (
                 <Tabs.Trigger
                   key={tab.value}

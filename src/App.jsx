@@ -9,6 +9,7 @@ import OurStory from './pages/OurStory';
 import MyCreations from './pages/MyCreations';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import Success from './pages/Success';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="gallery" element={<MyCreations />} />
               <Route path="contact" element={<Contact />} />
               <Route path="cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route path="success" element={<Success />} />
             </Route>
           </Routes>

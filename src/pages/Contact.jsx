@@ -1,131 +1,116 @@
-import { useState } from 'react';
-import { Mail, Phone } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { Mail, Phone } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would send the data to a backend
-    console.log(formData);
-    setSubmitted(true);
+    // You can add form submission logic here (e.g., send to an API)
+    alert('Message sent! (This is a demo)');
   };
 
   return (
     <>
       <Helmet>
         <title>Contact Us | Spice Wood Soaps</title>
-        <meta name="description" content="Get in touch with questions about ingredients, wholesale, or custom orders." />
+        <meta
+          name="description"
+          content="Have questions about our ingredients or need help choosing the right soap? Get in touch with us."
+        />
       </Helmet>
-      <div className="bg-background py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+
+      <div className="bg-secondary-foreground/70 min-h-screen py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Page Header */}
+          <div className="text-center max-w-2xl mx-auto mb-16 text-white">
             <h1 className="font-serif text-5xl font-bold mb-4">Get in Touch</h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-white/60 text-lg">
               Have questions about our ingredients or need help choosing the right soap? We'd love to hear from you.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Contact Info */}
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Left Column: Contact Info */}
             <div className="space-y-8">
-              <div>
-                <h2 className="font-serif text-2xl font-bold mb-4">Contact Information</h2>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-primary" />
-                    <a href="mailto:Spicewoodsoaps@gmail.com" className="hover:underline">
-                      Spicewoodsoaps@gmail.com
-                    </a>
+              {/* Contact Information Card */}
+              <div className="bg-secondary-foreground/40 text-white p-8 rounded-2xl border border-border/50 shadow-sm space-y-6">
+                <h3 className="font-serif text-2xl font-bold">Contact Information</h3>
+                <div className="space-y-6">
+                  {/* Email */}
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-secondary/20 rounded-full text-primary">
+                      <Mail className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-white/80 font-medium mb-1">Email Us</h4>
+                      <p className="text-white/50">Spicewoodsoaps@gmail.com</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-primary" />
-                    <a href="tel:+19043256295" className="hover:underline">
-                      (904) 325-6295
-                    </a>
+                  {/* Phone */}
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-secondary/20 rounded-full text-primary">
+                      <Phone className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-white/70 font-medium mb-1">Call Us</h4>
+                      <p className="text-white/50">(904) 325-6295</p>
+                      <p className="text-xs text-white/50 mt-1">
+                        Monday to Friday, 10am to 7pm EST
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-sm text-muted-foreground ml-8">
-                    Monday to Friday, 10am to 7pm EST
-                  </p>
                 </div>
               </div>
 
-              <div>
-                <h2 className="font-serif text-2xl font-bold mb-4">Wholesale Inquiries</h2>
-                <p className="text-muted-foreground mb-2">
+              {/* Wholesale Inquiries Card */}
+              <div className="bg-secondary-foreground/60 p-8 rounded-2xl">
+                <h3 className="text-white font-serif text-xl font-bold mb-2">Wholesale Inquiries</h3>
+                <p className="text-white/50">
                   Interested in selling our products in your store? Contact us and we'll be happy to work with you!
                 </p>
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div>
-              <h2 className="font-serif text-2xl font-bold mb-4">Send a Message</h2>
-              {submitted ? (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-                  Thank you for your message! We'll get back to you soon.
+            {/* Right Column: Contact Form */}
+            <div className="bg-secondary-foreground/40 dark:bg-card p-8 md:p-10 rounded-3xl shadow-xl border border-border/50">
+              <h3 className="font-serif text-2xl font-bold mb-6 text-white">Send a Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-white text-sm font-medium">Name</label>
+                  <input
+                    name="name"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    placeholder="Your name"
+                    required
+                  />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="4"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                      placeholder="How can we help you?"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-md hover:bg-primary/90 transition-colors"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              )}
+                <div className="space-y-2">
+                  <label className="text-white text-sm font-medium">Email</label>
+                  <input
+                    name="email"
+                    type="email"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-white text-sm font-medium">Message</label>
+                  <textarea
+                    name="message"
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
+                    placeholder="How can we help you?"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 px-8 w-full rounded-full h-12 text-base"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>

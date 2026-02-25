@@ -29,22 +29,43 @@ export default function MyCreations() {
     <>
       <Helmet>
         <title>My Creations | Spice Wood Soaps</title>
-        <meta name="description" content="A glimpse into the artisan process – handcrafted soaps made in Saint Augustine, FL." />
+        <meta
+          name="description"
+          content="A glimpse into the artisan process – handcrafted soaps made in Saint Augustine, FL."
+        />
       </Helmet>
-      <div className="bg-background py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="font-serif text-5xl font-bold mb-4">My Creations</h1>
-            <p className="text-xl text-primary font-light">Handcrafted with love in Saint Augustine, Florida</p>
-          </div>
 
-          <p className="text-center text-muted-foreground text-lg max-w-2xl mx-auto mb-12">
+      {/* Hero Section */}
+      <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?q=80&w=2000&auto=format&fit=crop"
+          alt="Handmade soap ingredients"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6">
+            My Creations
+          </h1>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto font-light tracking-wide text-white/60">
+            Handcrafted with love in Saint Augustine, Florida
+          </p>
+        </div>
+      </div>
+
+      {/* Gallery Section */}
+      <div className="bg-secondary-foreground/70 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-white/60 text-lg max-w-2xl mx-auto mb-12">
             A glimpse into the artisan process behind Spice Wood Soaps. Each product is carefully crafted by hand using traditional methods and natural ingredients.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map(img => (
-              <div key={img.id} className="aspect-square bg-secondary/30 rounded-xl overflow-hidden">
+            {images.map((img) => (
+              <div
+                key={img.id}
+                className="aspect-square bg-secondary/30 rounded-xl overflow-hidden"
+              >
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -52,9 +73,8 @@ export default function MyCreations() {
                   loading="lazy"
                   onError={(e) => {
                     console.error(`Failed to load: ${img.src}`);
-                    // Optionally show a placeholder or hide the broken image
                     e.target.style.display = 'none';
-                    // You could also show a fallback element
+                    // Optionally show a fallback element
                     // e.target.parentElement.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center">Image not found</div>';
                   }}
                 />

@@ -7,21 +7,21 @@ export default function ProductCard({ product }) {
   const { id, category, name, description, price, stock } = product;
 
   return (
-    <div className="group relative bg-card rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-border/40 overflow-hidden">
+    <div className="group relative bg-background/60  text-primary-foreground/60 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full border border-border/40 overflow-hidden">
       <div className="p-5 flex flex-col flex-grow">
         <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-1">
-          {category}
-        </div>
+  {category.toUpperCase()}
+</div>
         <Link to={`/product/${id}`} className="block">
-          <h3 className="font-serif text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+          <h3 className="font-serif text-xl font-bold  text-primary-foreground mb-2 group-hover:text-primary transition-colors">
             {name}
           </h3>
         </Link>
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{description}</p>
+        <p className=" text-primary-foreground/60 text-sm text-muted-foreground mb-4 line-clamp-2">{description}</p>
         <div className="mt-auto space-y-3">
           <div className="flex items-center justify-between gap-2">
-            <span className="font-medium text-lg text-primary">${price.toFixed(2)}</span>
-            <span className="text-xs px-2 py-1 rounded-full bg-secondary/30 text-secondary-foreground">
+            <span className="font-medium text-lg  text-primary-foreground">${price.toFixed(2)}</span>
+            <span className="text-xs px-2 py-1 rounded-full bg-secondary/30  text-primary-foreground">
               {stock > 0 ? 'In Stock' : 'Out of Stock'}
             </span>
           </div>

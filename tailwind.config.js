@@ -11,7 +11,7 @@ export default {
         serif: ['Playfair Display', 'serif'],
       },
       colors: {
-        background: '#FFF9F0',        // ← updated to match your CSS variable
+        background: 'rgba(55, 44, 37, 0.8)',        // ← updated to match your CSS variable
         foreground: '#2C1810',
         primary: '#8B5A2B',
         'primary-foreground': '#FFFFFF',

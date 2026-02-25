@@ -23,7 +23,7 @@ export default function Header() {
       <div className="bg-primary text-primary-foreground text-center py-2.5 px-4 text-sm font-medium tracking-wide">
         Browse at your leisure! Our official launch is coming soon.
       </div>
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <nav className="sticky top-0 z-50 bg-background/80  backdrop-blur-md border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -43,13 +43,13 @@ export default function Header() {
                   className={`text-sm font-medium transition-colors hover:text-primary ${
                     location.pathname === link.to
                       ? 'text-primary font-semibold'
-                      : 'text-foreground/80'
+                      : ' text-primary-foreground/60'
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link to="/cart" className="relative p-2 text-foreground/80 hover:text-primary transition-colors">
+              <Link to="/cart" className="relative p-2  text-primary-foreground/60 hover:text-primary transition-colors">
                 <ShoppingCart className="w-5 h-5" />
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded-full">
