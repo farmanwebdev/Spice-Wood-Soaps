@@ -27,7 +27,7 @@ export default function Home() {
             to="/shop"
             className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors"
           >
-            Shop Collection
+            Shop Collections
           </Link>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function Home() {
       <section className="py-16 bg-secondary-foreground/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
-            Selected for You
+            Selected for You !
           </p>
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-primary-foreground font-serif text-3xl font-bold">Featured Collections</h2>
